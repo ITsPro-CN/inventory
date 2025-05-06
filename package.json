@@ -1,0 +1,68 @@
+{
+	"name": "inventory",
+	"description": "A Inventory Management System",
+	"author": "ITsPro-CN",
+	"private": false,
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/ITsPro-CN/Inventory"
+	},
+	"type": "module",
+	"version": "1.0.0",
+	"files": [
+		"components",
+		"composables",
+		"layouts",
+		"pages",
+		"public",
+		"server",
+		"types",
+		".env.example",
+		"app.vue",
+		"nuxt.config.ts",
+		"tsconfig.json"
+	],
+	"scripts": {
+		"build": "nuxt build --dotenv .env.production",
+		"dev": "nuxt dev --dotenv .env.local --host -o",
+		"generate": "nuxt generate",
+		"preview": "nuxt preview",
+		"postinstall": "nuxt prepare"
+	},
+	"dependencies": {
+		"@logto/nuxt": "^1.2.4",
+		"@nuxtjs/color-mode": "^3.5.2",
+		"@pinia/nuxt": "^0.11.0",
+		"@tailwindcss/vite": "^4.1.5",
+		"dayjs-nuxt": "2.1.11",
+		"iconv-lite": "^0.6.3",
+		"nuxt": "^3.17.1",
+		"openai": "^4.97.0",
+		"pg": "^8.15.6",
+		"pinia": "^3.0.2",
+		"pinia-plugin-persistedstate": "^4.2.0",
+		"qrcode": "^1.5.4",
+		"tailwindcss": "^4.1.5",
+		"tdesign-icons-vue-next": "^0.3.6",
+		"tdesign-vue-next": "^1.11.5",
+		"uuid": "^11.1.0",
+		"vue": "^3.5.13",
+		"vue-router": "^4.5.1"
+	},
+	"packageManager": "pnpm@10.10.0",
+	"devDependencies": {
+		"@tdesign-vue-next/nuxt": "0.1.5",
+		"@types/pg": "^8.11.14",
+		"@types/qrcode": "^1.5.5"
+	},
+	"release-it": {
+		"github": {
+			"release": true,
+			"releaseName": "v${version}"
+		},
+		"git": {
+			"commitMessage": "chore(release): release v${version}"
+		}
+	}
+}
