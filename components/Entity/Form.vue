@@ -12,7 +12,7 @@
 							<t-tree-select
 								:data="tree_location"
 								:keys="{value: 'id', label: 'name'}"
-								v-model="<string>formData.parent"
+								v-model="formData.parent"
 								placeholder="请选择"
 								:tree-props="{
 									checkStrictly: true,
@@ -169,7 +169,7 @@
 	const formDataDefault: EntityData & {propArray: [string, any][]} = {
 		id: undefined,
 		name: "",
-		parent: undefined,
+		parent: "",
 		is_container: false,
 		image: "",
 		note: "",

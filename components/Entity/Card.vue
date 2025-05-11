@@ -166,7 +166,6 @@
 	};
 	calcSubEntity();
 	watch([() => prop.item, () => prop.entity], ([item, entity]) => {
-		console.log(item, entity);
 		calcSubEntity();
 	});
 

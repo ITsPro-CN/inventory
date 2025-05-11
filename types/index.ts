@@ -12,6 +12,7 @@ interface EntityData {
 	expiry?: Date | undefined;
 	prop?: Record<string, any>;
 	sort?: number;
+	share_user?: Array<string>;
 }
 
 class Entity implements EntityData {
@@ -28,14 +29,17 @@ class Entity implements EntityData {
 	public expiry: Date | undefined;
 	public prop: Record<string, any>;
 	public sort: number;
+	public share_user?: Array<string>;
 
 	public children: Entity[];
+	public items: Entity[];
 	public path: string[];
 
 	constructor(data: EntityData) {
 		this.id = data.id ?? "";
 		this.update(data);
 		this.children = [];
+		this.items = [];
 		this.path = [];
 	}
 	update(data: EntityData) {
@@ -51,15 +55,18 @@ class Entity implements EntityData {
 		this.expiry = data?.expiry;
 		this.prop = data?.prop ?? {};
 		this.sort = data?.sort ?? 0;
+		this.share_user = data?.share_user ?? [];
 	}
-	public generateRelation(parents: Record<string, Entity>) {
+
+	public generateRelation(entity: Record<string, Entity>, id: string) {
 		this.path = [];
-		if (this.parent && parents[this.parent]) {
-			let parent: Entity | undefined = parents[this.parent];
+		if (this.is_container) this.items = Object.values(entity).filter((e) => e.active && !e.is_container && e.parent === this.id);
+		if (this.parent && entity[this.parent]) {
+			let parent: Entity | undefined = entity[this.parent];
 			if (this.is_container) parent.children = [...parent.children, this].sort((a, b) => a.sort - b.sort);
 			while (parent) {
 				this.path.unshift(parent.id);
-				parent = parent.parent ? parents[parent.parent] : undefined;
+				parent = parent.parent ? entity[parent.parent] : undefined;
 			}
 		}
 	}

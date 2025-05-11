@@ -11,5 +11,5 @@ A multi-user inventory management system.
 
 ## Setup
 
--   [PostgreSQL 17.4](https://github.com/ITsPro-CN/Inventory/.setup/setup.sql)
+-   [PostgreSQL 17.4](https://github.com/ITsPro-CN/inventory/blob/master/.setup/setup.sql)
 

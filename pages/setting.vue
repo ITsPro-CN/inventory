@@ -23,17 +23,17 @@
 									v-model:value="config.$state.entityTheme"
 									:options="[
 										{icon: 'terminal-window', label: '详细', value: 0},
-										{icon: 'panorama-horizontal', label: '正常', value: 1},
-										{icon: 'image', label: '图标', value: 2},
+										{icon: 'panorama-horizontal', label: '标准', value: 1},
+										{icon: 'image', label: '简单', value: 2},
 									]" />
 							</t-form-item>
 							<div class="relative w-full flex text-gray-500 -top-2">
 								<small>提示：图标模式下，单击操作物品，双击进入目录</small>
 							</div>
-							<t-form-item label="显示下级目录" name="isDisplaySubContainer" initial-data="true">
+							<t-form-item label="物品窗口中显示下级目录" name="isDisplaySubContainer" initial-data="true">
 								<t-switch size="large" v-model="config.$state.isDisplaySubContainer"></t-switch>
 							</t-form-item>
-							<t-form-item label="显示下级目录中的物品" name="isDisplayEntityInSubContainer" initial-data="false">
+							<t-form-item label="物品窗口中显示下级目录中的物品" name="isDisplayEntityInSubContainer" initial-data="false">
 								<t-switch size="large" v-model="config.$state.isDisplayEntityInSubContainer"></t-switch>
 							</t-form-item>
 						</t-card>
